@@ -5,9 +5,61 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #82d3ff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h3 {
+  color: white;
+}
+
+input, input:focus{
+  outline: none;
+}
+
+label {
+  font-size: .9em;
+}
+
+button {
+  width: 100%;
+  margin: 5px 0;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.container {
+  max-width: 550px;
+  padding-bottom: 5%;
+}
+
+.form-group {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.form-control {
+  border-width: 0 0 2px;
+  border-radius: 0;
+}
+
+#clear {
+  margin-right: 10px;
+}
+
+#wpBody, #wpCard {
+  display: flex;
+  flex-direction: column;
+}
+
+#check-wr {
+  margin-left: 5px;
 }

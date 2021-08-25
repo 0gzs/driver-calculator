@@ -1,0 +1,24 @@
+export interface IState {
+  totalHours: number;
+  engagedTime: number;
+  tips: number;
+  weeklyRewards: number;
+  miles: number;
+  orders: number;
+  activeHours: number;
+  guaranteedAmount: number;
+  earnings: number;
+  mileageEarnings: number;
+  commissionEarnings: number;
+  weekPay: number;
+  difference: number;
+  adjustments: number;
+  finalPay: number;
+  payPerHour: number;
+  guaranteedRate: number;
+  subsidyRate: number;
+  mileageRate: number;
+  commissionRate: number;
+  driverName: string;
+  newSession: boolean;
+};
