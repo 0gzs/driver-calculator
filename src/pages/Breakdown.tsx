@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import {Redirect} from "react-router-dom";
 
 import { IPage } from "../interfaces/page";
 
@@ -10,6 +11,10 @@ const Breakdown: React.FC<IPage> = (props) => {
   const { name, state } = props;
 
   useEffect(() => logging.info(`Logging ${name}`));
+
+  if (state.newSession) {
+    return <Redirect to="/" />
+  }
 
   return (
     <Card>
