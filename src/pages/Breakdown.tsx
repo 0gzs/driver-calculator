@@ -27,7 +27,7 @@ const Breakdown: React.FC<IPage> = (props) => {
             
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-              Base Earnings: ${state.weekPay.toFixed(2)}
+              Base Earnings 
             </Accordion.Header>
             <Accordion.Body>
               This amount includes commission, weekly rewards, tips, and mileage:
@@ -47,18 +47,24 @@ const Breakdown: React.FC<IPage> = (props) => {
               <Button variant="success" disabled>
                 Mileage: ${state.mileageEarnings.toFixed(2)}
               </Button>
+              <Button variant="outline-success" disabled>
+                Week Pay: ${state.weekPay.toFixed(2)}
+              </Button>
             </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="1">
             <Accordion.Header>
-              Final Pay: ${state.finalPay.toFixed(2)}
+              Final Pay
             </Accordion.Header>
             <Accordion.Body>
               The final pay includes the base pay from above, as well as adjustments payed by Gopuff:
               <br />
               <Button variant="success" disabled>
                 Adjustments: ${state.adjustments.toFixed(2)}
+              </Button>
+              <Button variant="outline-success" disabled>
+                Final Pay: ${state.finalPay.toFixed(2)}
               </Button>
             </Accordion.Body>
           </Accordion.Item>

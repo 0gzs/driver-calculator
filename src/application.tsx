@@ -48,9 +48,8 @@ const Application: React.FunctionComponent = () => {
         </Router>
         <Button
           onClick={() => dispatch({type: 'reset'})}
-          size="sm"
           variant="secondary"
-          >Reset</Button>
+          >Start Over</Button>
       </Container>
   );
 }
