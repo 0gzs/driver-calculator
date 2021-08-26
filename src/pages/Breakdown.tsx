@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import {Redirect} from "react-router-dom";
 
-import { IPage } from "../interfaces/page";
-
-import logging from "../config/logging";
 import Card from "react-bootstrap/Card";
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
+
+import { IPage } from "../interfaces/page";
+import logging from "../config/logging";
+
 
 const Breakdown: React.FC<IPage> = (props) => {
   const { name, state } = props;
@@ -26,29 +27,39 @@ const Breakdown: React.FC<IPage> = (props) => {
             
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-              Base Earnings: ${state.weekPay}
+              Base Earnings: ${state.weekPay.toFixed(2)}
             </Accordion.Header>
             <Accordion.Body>
               This amount includes commission, weekly rewards, tips, and mileage:
               <br />
-              <strong>Commission Earnings</strong>: ${state.commissionEarnings}
-              <br />
-              <strong>Weekly Rewards</strong>: ${state.weeklyRewards}
-              <br />
-              <strong>Tips</strong>: ${state.tips}
-              <br />
-              <strong>Mileage</strong>: ${state.mileageEarnings}
+              <Button variant="success" disabled>
+                Commission Earnings: ${state.commissionEarnings.toFixed(2)}
+              </Button>
+                <br />
+              <Button variant="success" disabled>
+                Weekly Rewards: ${state.weeklyRewards.toFixed(2)}
+              </Button>
+                <br />
+              <Button variant="success" disabled>
+                Tips: ${state.tips.toFixed(2)}
+              </Button>
+                <br />
+              <Button variant="success" disabled>
+                Mileage: ${state.mileageEarnings.toFixed(2)}
+              </Button>
             </Accordion.Body>
           </Accordion.Item>
 
           <Accordion.Item eventKey="1">
             <Accordion.Header>
-              Final Pay: ${state.finalPay}
+              Final Pay: ${state.finalPay.toFixed(2)}
             </Accordion.Header>
             <Accordion.Body>
               The final pay includes the base pay from above, as well as adjustments payed by Gopuff:
-              <br/>
-              <strong>Adjustments</strong>: ${state.adjustments}
+              <br />
+              <Button variant="success" disabled>
+                Adjustments: ${state.adjustments.toFixed(2)}
+              </Button>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
