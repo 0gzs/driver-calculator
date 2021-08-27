@@ -19,7 +19,8 @@ const Input: React.FC<IProps> = (props) => {
   return (
     <Form.Control
       onChange={onChange}
-      value={val}
+      min='0'
+      defaultValue={val || ''}
       placeholder="0"
       type="number"
       disabled={wR ? wR : false}
