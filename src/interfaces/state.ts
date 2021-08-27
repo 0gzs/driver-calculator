@@ -1,6 +1,5 @@
 export interface IState {
   totalHours: number;
-  engagedTime: number;
   tips: number;
   weeklyRewards: number;
   miles: number;
@@ -19,6 +18,7 @@ export interface IState {
   subsidyRate: number;
   mileageRate: number;
   commissionRate: number;
+  greaterVal: number;
   driverName: string;
   newSession: boolean;
 };

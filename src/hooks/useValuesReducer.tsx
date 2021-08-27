@@ -11,7 +11,6 @@ export type TReducer = Reducer<IState, Action>;
 
 export const initialState: IState = {
   totalHours: 0,
-  engagedTime: 0,
   tips: 0,
   weeklyRewards: 0,
   miles: 0,
@@ -30,6 +29,7 @@ export const initialState: IState = {
   subsidyRate: 17.23,
   mileageRate: 0.3,
   commissionRate: 3.0,
+  greaterVal: 0,
   driverName: "",
   newSession: true
 };
@@ -58,7 +58,7 @@ const valuesReducer: TReducer = (state: IState, action: Action) => {
       }
     }
     case "calc": {
-      const [ah, ga, e, me, ce, wp, diff, adj, fp, pph] = calculate(state);
+      const [ah, ga, e, me, ce, wp, diff, adj, fp, pph, gv] = calculate(state);
       return {
         ...state,
         'activeHours': ah,
@@ -71,6 +71,7 @@ const valuesReducer: TReducer = (state: IState, action: Action) => {
         'adjustments': adj,
         'finalPay': fp,
         'payPerHour': pph,
+        'greaterVal': gv
       };
     }
     case "reset": {

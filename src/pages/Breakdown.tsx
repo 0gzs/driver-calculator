@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {Redirect} from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
@@ -9,12 +9,25 @@ import logging from "../config/logging";
 
 
 const Breakdown: React.FC<IPage> = (props) => {
+  const [greater, setGreater] = useState("");
   const { name, state } = props;
 
   useEffect(() => logging.info(`Logging ${name}`));
 
+  useEffect(() => {
+    if (state.commissionEarnings === state.greaterVal) {
+      setGreater("commission");
+    } else {
+      setGreater("guaranteedAmount")
+    }
+  }, [state])
+
   if (state.newSession) {
     return <Redirect to="/" />
+  }
+
+  if (isNaN(state.adjustments) || isNaN(state.finalPay)) {
+    return <Redirect to="/driver-form" />
   }
 
   return (
@@ -30,10 +43,20 @@ const Breakdown: React.FC<IPage> = (props) => {
               Base Earnings 
             </Accordion.Header>
             <Accordion.Body>
-              This amount includes commission, weekly rewards, tips, and mileage:
+              {greater === "commission" ?
+                "This amount includes commission, weekly rewards, tips, and mileage" :
+                "This amount includes the guaranteed amount (higher than commission), weekly rewards, tips and mileage"
+              }
               <br />
               <Button variant="success" disabled>
-                Commission Earnings: ${state.commissionEarnings.toFixed(2)}
+                {greater === 'commission' ?
+                  <div>
+                    Commission Earnings: ${state.commissionEarnings.toFixed(2)}
+                  </div> :
+                  <div>
+                    Guaranteed Amount: ${state.guaranteedAmount.toFixed(2)}
+                  </div>
+                }
               </Button>
                 <br />
               <Button variant="success" disabled>

@@ -3,7 +3,7 @@ import { IState } from '../interfaces/state';
 const calculate = (state: IState) => {
   const {
     totalHours,
-    engagedTime,
+    activeHours,
     tips,
     miles,
     weeklyRewards,
@@ -14,7 +14,6 @@ const calculate = (state: IState) => {
     commissionRate,
   } = state;
 
-  const activeHours = parseFloat((engagedTime / orders).toFixed(2));
   const guaranteedAmount = parseFloat((activeHours * subsidyRate).toFixed(2));
   const commissionEarnings = parseFloat((commissionRate * orders).toFixed(2));
 
@@ -24,7 +23,7 @@ const calculate = (state: IState) => {
   };
 
   const greaterVal = calcGreaterPay();
-  const earnings = greaterVal + weeklyRewards;
+  const earnings = commissionEarnings + weeklyRewards;
   const mileageEarnings = parseFloat((miles * mileageRate).toFixed(2));
   const weekPay = parseFloat((earnings + tips + mileageEarnings).toFixed(2));
 
@@ -36,7 +35,7 @@ const calculate = (state: IState) => {
   console.log(activeHours, guaranteedRate, earnings, mileageEarnings);
   return [
     activeHours,
-    guaranteedRate,
+    guaranteedAmount,
     earnings,
     mileageEarnings,
     commissionEarnings,
@@ -44,7 +43,8 @@ const calculate = (state: IState) => {
     difference,
     adjustments,
     finalPay,
-    payPerHour
+    payPerHour,
+    greaterVal
   ]
 };
 

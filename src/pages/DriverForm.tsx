@@ -36,11 +36,11 @@ const DriverForm: React.FunctionComponent<IPage> = (props) => {
         </Form.Group>
 
         <Form.Group className="form-group">
-          <Form.Label>Active Engage Time</Form.Label>
+          <Form.Label>Active Hours</Form.Label>
           <Input
             updateFunc={dispatch}
-            oKey={'engagedTime'}
-            val={state.engagedTime}
+            oKey={'activeHours'}
+            val={state.activeHours}
           />
         </Form.Group>
 

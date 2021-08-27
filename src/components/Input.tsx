@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 
 interface IProps {
@@ -19,7 +19,7 @@ const Input: React.FC<IProps> = (props) => {
   return (
     <Form.Control
       onChange={onChange}
-      value={val !== 0 ? val : ""}
+      value={val}
       placeholder="0"
       type="number"
       disabled={wR ? wR : false}
